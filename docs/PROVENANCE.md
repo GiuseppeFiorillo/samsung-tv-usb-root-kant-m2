@@ -70,10 +70,16 @@ validation to this target automatically.
 * Independent trigger verifier and two-partition USB composer.
 * Deterministic FAT32 proof-volume generator.
 * Host-side relay and kernel report decoder.
+* Optional persistent root daemon for the writable `/opt` partition, started by
+  the vendor `AT-HUB.service` → `/opt/etc/parseinfo.sh` hook, plus its
+  installer, uninstaller, challenge-response client and offline tests.
 
 The exploit-stage logic is retained as used in the hardware experiments. The
-FAT32 generator and build wrapper are packaging additions, not a new hardware
-validation.
+FAT32 generator, build wrapper and persistence tooling are packaging additions,
+not a new hardware validation. The persistence path is implemented and tested
+offline only; the upstream project's post-exploitation notes and the
+`AT-HUB.service` hook found in the T-KTM2DEUC rootfs motivated the design, but
+no upstream persistent-daemon code is copied.
 
 ## License
 

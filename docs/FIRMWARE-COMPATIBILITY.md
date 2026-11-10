@@ -44,10 +44,13 @@ inside the archive reports version 1400.2, build date 2026-06-05 and key
 
 ## Operational limits
 
-The USB stick is required at every cold boot in the current setup. Root does
-not survive a restart without the stick. USB-free boot has not been
-established. Leaving the stick inserted across several boots produced a
-reboot loop on the validated unit.
+Without the optional persistent install, the USB stick is required at every
+cold boot and root does not survive a restart. The persistent daemon described
+in [PERSISTENCE.md](PERSISTENCE.md) removes that requirement, but it has only
+been tested offline and depends on the signed `/usr/bin/node` runtime and the
+`AT-HUB.service` → `/opt/etc/parseinfo.sh` boot hook. It has not been
+boot-validated on a TV. Leaving the stick inserted across several boots
+produced a reboot loop on the validated unit.
 
 Static compatibility is not permission to use an image on another set. A wrong
 address can hang or reboot the TV.
