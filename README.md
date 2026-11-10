@@ -1,4 +1,6 @@
-# samsung-tv-usb-root-kant
+# samsung-tv-usb-root-kant-m2
+
+Kant-M2 port of [Luminger/samsung-tv-usb-root](https://github.com/Luminger/samsung-tv-usb-root).
 
 One-plug USB root for the Samsung 2018 Kant-M2 platform, developed and
 physically validated on:
@@ -60,7 +62,7 @@ Output is `out/umh-boot/usb.img`, its component files and `manifest.json` with
 sizes and SHA-256 hashes. Existing output directories are refused. The build
 writes regular files only; it does not connect to a TV or flash a disk.
 
-Flash the image to the whole USB device (this destroys that device):
+Flash the image to the whole USB device:
 
 ```sh
 sudo dd if=out/umh-boot/usb.img of=/dev/sdX bs=4M conv=fsync status=progress
@@ -161,6 +163,13 @@ shipped proprietary modules, device certificates, keys or live device dump.
 To rebuild addresses for another firmware, provide your legally obtained
 `kernel.bin` and the matching modules as documented in
 [docs/PROVENANCE.md](docs/PROVENANCE.md).
+
+## Credits
+
+The original USB-root research, the exFAT `num_ext` trigger builder and the
+fixed-cave approach come from
+[Luminger/samsung-tv-usb-root](https://github.com/Luminger/samsung-tv-usb-root).
+This repository adapts that work to the Kant-M2 platform.
 
 ## License
 
