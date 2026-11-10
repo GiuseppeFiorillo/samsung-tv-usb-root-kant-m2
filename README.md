@@ -72,16 +72,33 @@ sync
 On macOS, `tools/write_usb.sh` performs the same write with an explicit
 confirmation and refuses internal disks.
 
-Start the relay before powering on the TV; the shell connects only once per
-cold boot:
+### Connecting to the root shell
+
+**You do not connect directly to `<TV_IP>:4445`.** This exploit uses a reverse shell: the TV initiates an outbound connection to the listener running on your computer.
+
+The two ports have different purposes:
+
+| Port | Purpose |
+|---|---|
+| `4444` | Beacon endpoint configured with `--beacon LISTENER_IP:4444` |
+| `4445` | Reverse shell connection from the TV to your computer |
+
+After building and flashing the USB image, start the host-side relay **before powering on the TV**:
 
 ```sh
 python lab/relay_shell_4445.py --bind 0.0.0.0 --port 4445 \
   --log out/root_shell.log --commands out/cmds.txt
 ```
 
-See [docs/USB-STICK.md](docs/USB-STICK.md) for the full procedure, variants
-and validation record.
+Make sure `LISTENER_IP` is reachable from the TV and that your computer's firewall permits the required incoming connections.
+
+The TV attempts to establish the reverse shell once per cold boot. There is no persistent SSH service or shell listener running on the TV.
+
+On the physically validated configuration, the resulting Bash session runs as `uid=0(root)`.
+
+**Important:** Remove the USB stick once the shell is established. Leaving it inserted across multiple boots caused a reboot loop on the tested device.
+
+For the complete procedure, see [docs/USB-STICK.md](docs/USB-STICK.md).
 
 ## What one plug does
 
