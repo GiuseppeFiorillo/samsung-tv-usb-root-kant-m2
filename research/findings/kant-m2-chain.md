@@ -253,6 +253,5 @@ sectors); p2 at LBA 18432 (type `0x0C`, 131072 sectors).
   inserted across several boots produced a reboot loop on the validated unit.
 * Addresses for other Kant-M2 firmware images. They must be re-derived unless
   the kernel is identical.
-* Long-running stability and root persistence across a restart without the
-  stick.
+* Long-running stability and reboot behaviour of the exploit chain.
 
