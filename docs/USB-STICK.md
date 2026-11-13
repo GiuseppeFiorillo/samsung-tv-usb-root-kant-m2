@@ -1,4 +1,4 @@
-# One-plug USB root — QE49Q6FNA / T-KTM2DEUC-1400.2
+# One-plug USB root — QE49Q6FNA / T-KTM2DEUC-1400.2 / Tizen 4.0
 
 ## Build
 

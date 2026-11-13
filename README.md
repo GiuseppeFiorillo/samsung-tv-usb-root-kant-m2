@@ -2,13 +2,14 @@
 
 Kant-M2 port of [Luminger/samsung-tv-usb-root](https://github.com/Luminger/samsung-tv-usb-root).
 
-One-plug USB root for the Samsung 2018 Kant-M2 platform, developed and
-physically validated on:
+One-plug USB root for the Samsung 2018 Kant-M2 platform running Tizen 4.0,
+developed and physically validated on:
 
 ```text
 Model:    QE49Q6FNA
 Platform: 18_KANTM2_QTV
 Firmware: T-KTM2DEUC 1400.2
+Tizen:    4.0
 Kernel:   Linux 4.1.10 ARMv7
 ```
 
